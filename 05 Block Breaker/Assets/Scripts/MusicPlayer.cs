@@ -3,16 +3,16 @@ using System.Collections;
 
 public class MusicPlayer : MonoBehaviour {
 
-    public static int musicPlayerCount = 0;
+    public static MusicPlayer instance = null;
 
 	// Use this for initialization
 	void Start () {
         GameObject.DontDestroyOnLoad(gameObject);
-        if (MusicPlayer.musicPlayerCount > 0)
+        if (instance != null)
         {
             GameObject.Destroy(gameObject);
         }
-        MusicPlayer.musicPlayerCount += 1;
+        instance = this;
 	}
 	
 	// Update is called once per frame
