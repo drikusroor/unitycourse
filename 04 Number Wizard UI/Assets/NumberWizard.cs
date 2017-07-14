@@ -1,68 +1,88 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class NumberWizard : MonoBehaviour {
 
     public int randomNumber;
-    public int turns = 0;
 
     public int min = 1;
     public int max = 1000;
     public int guess = 500;
 
+    public int maxGuessesAllowed = 10;
+
+    public Text scoreDisplay;
+    
+    public AudioSource up;
+    public AudioSource down;
 
 	// Use this for initialization
 	void Start () {
-
         StartGame();
-
     }
 
     void StartGame()
     {
         min = 1;
         max = 1000;
-        guess = 500;
-        
-
-        print("=============================================");
-        print("Welcome to Number Wizard");
-        print("Pick a number in you head, but do not tell me");
-
-        print("The highest number you can pick is " + max.ToString());
-        print("The lowest number you can pick is " + min.ToString());
-
-        print("Is the number higher or lower than " + guess + "?");
-        print("Up = for higher, down = lower, return = equal");
+        NextGuess();
 
         max = max + 1;
     }
 
+    public void GuessHigher()
+    {
+        up.Play();
+        min = guess;
+        NextGuess();
+    }
+
+    public void GuessLower()
+    {
+        down.Play();
+        max = guess;
+        NextGuess();
+    }
+
+    void GenerateGuess()
+    {
+        int typeGuess = Random.Range(0, 3);
+
+        // Rational guess
+        if (typeGuess == 0)
+        {
+            guess = (max + min) / 2;
+        }
+        // Random guess
+        else if (typeGuess == 1)
+        {
+            guess = Random.Range(min, max + 1);
+        }
+        // Semi-rational
+        else
+        {
+            int deviation = (int)Mathf.Ceil((max - min) / 5);
+            int plusOrMinus = Random.Range(0, 2);
+            if (plusOrMinus == 0) deviation = -deviation;
+            guess = (max + min + 1) / 2 + deviation;
+        }
+
+        scoreDisplay.text = guess.ToString();
+    }
+
     void NextGuess()
     {
-        guess = (max + min) / 2;
-        print("Higher or lower than " + guess);
-        print("Up = for higher, down = lower, return = equal");
+        GenerateGuess();
+        maxGuessesAllowed = maxGuessesAllowed - 1;
+        if(maxGuessesAllowed <= 0)
+        {
+            Application.LoadLevel("Win");
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            //print("up");
-            min = guess;
-            NextGuess();
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            //print("down");
-            max = guess;
-            NextGuess();
-        }
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            print("I won!");
-            StartGame();
-        }
+	    
     }
 }
