@@ -5,12 +5,13 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadLevel(string name)
     {
-        Application.LoadLevel(name);
         Debug.Log("Level load requested for " + name);
+        Application.LoadLevel(name);
     }
 
     public void Quit()
     {
+        Debug.Log("Quit game requested.");
         Application.Quit();
     }
 
