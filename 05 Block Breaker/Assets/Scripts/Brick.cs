@@ -15,7 +15,7 @@ public class Brick : MonoBehaviour {
 	void Update () {
 	    if (timesHit >= maxHits)
         {
-            Destroy(this);
+            
         }
 	}
 
