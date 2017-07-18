@@ -30,6 +30,7 @@ public class Ball : MonoBehaviour {
                 gameStarted = true;
             }
         }
+        
 
         
 	}
