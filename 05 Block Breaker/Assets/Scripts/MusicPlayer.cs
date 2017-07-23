@@ -9,10 +9,13 @@ public class MusicPlayer : MonoBehaviour {
     {
         if (instance != null)
         {
-            GameObject.Destroy(gameObject);
+            Destroy(gameObject);
+            print("Duplicate music player self-destructing!");
+        } else
+        {
+            instance = this;
+            GameObject.DontDestroyOnLoad(gameObject);
         }
-        instance = this;
-        GameObject.DontDestroyOnLoad(gameObject);
     }
 
     // Use this for initialization
