@@ -40,6 +40,9 @@ public class Ball : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        audioSource.PlayOneShot(audioSource.clip);
+		if (gameStarted) 
+		{
+			audioSource.PlayOneShot (audioSource.clip);
+		}
     }
 }

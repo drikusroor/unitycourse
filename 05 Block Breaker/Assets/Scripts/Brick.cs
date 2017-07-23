@@ -5,6 +5,7 @@ public class Brick : MonoBehaviour {
 
     public Sprite[] brickSprites;
     public static int breakableCount = 0;
+	public AudioClip collisionSound;
 
     private int timesHit = 0;
     private SpriteRenderer spriteRenderer;
@@ -15,6 +16,8 @@ public class Brick : MonoBehaviour {
     void Start () {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         isBreakable = (this.tag == "Breakable");
+
+		print (isBreakable.ToString ());
 
         // Keep track of breakable bricks
         if (isBreakable)
@@ -51,12 +54,20 @@ public class Brick : MonoBehaviour {
         }
         else
         {
+			print ("next sprite?");
             nextSprite();
         }
     }
 
+	void HandleCollisionSound() 
+	{
+		AudioSource.PlayClipAtPoint (collisionSound, transform.position);
+	}
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+		HandleCollisionSound ();
+
         if (isBreakable)
         {
             HandleHits();
