@@ -15,4 +15,18 @@ public class LevelManager : MonoBehaviour {
         Application.Quit();
     }
 
+    public void LoadNextLevel()
+    {
+
+    }
+
+    public void BrickDestroyed()
+    {
+        if (Brick.breakableCount <= 0)
+        {
+            print("You have won");
+            LoadLevel("Win");
+        }
+    }
+
 }
