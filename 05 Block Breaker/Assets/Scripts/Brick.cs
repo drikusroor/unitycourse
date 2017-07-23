@@ -6,6 +6,7 @@ public class Brick : MonoBehaviour {
     public Sprite[] brickSprites;
     public static int breakableCount = 0;
 	public AudioClip collisionSound;
+	public GameObject powerUpPrefab;
 
     private int timesHit = 0;
     private SpriteRenderer spriteRenderer;
@@ -16,8 +17,6 @@ public class Brick : MonoBehaviour {
     void Start () {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         isBreakable = (this.tag == "Breakable");
-
-		print (isBreakable.ToString ());
 
         // Keep track of breakable bricks
         if (isBreakable)
@@ -50,6 +49,9 @@ public class Brick : MonoBehaviour {
         {
             breakableCount--;
             levelManager.BrickDestroyed();
+
+			var powerUp = GameObject.Instantiate(powerUpPrefab, transform.position, transform.rotation);
+
             Destroy(gameObject);
         }
         else
