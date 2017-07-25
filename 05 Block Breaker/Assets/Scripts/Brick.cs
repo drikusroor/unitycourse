@@ -63,7 +63,11 @@ public class Brick : MonoBehaviour {
 
 	void HandleCollisionSound() 
 	{
-		AudioSource.PlayClipAtPoint (collisionSound, transform.position);
+		float volume = 1f;
+		// our ping sound is a little loud so we decrease its volume here
+		if (!isBreakable)
+			volume = 0.4f;
+		AudioSource.PlayClipAtPoint (collisionSound, transform.position, volume);
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
