@@ -39,13 +39,13 @@ public class PowerUp : MonoBehaviour {
 	void ChoosePowerUp() 
 	{
 		spriteRenderer = GetComponent<SpriteRenderer> ();
-		int type = Random.Range (0, 5);
+		int type = Random.Range (0, 6);
 
-		// temporarily it is always the same type
-		spriteRenderer.color = goodPowerUp;
-		if (type < -1) {
+		if (type > 2) {
+			spriteRenderer.color = goodPowerUp;
 			powerUpType = "WidePaddle";
 		} else {
+			spriteRenderer.color = badPowerUp;
 			powerUpType = "SlimPaddle";
 		}
 	}

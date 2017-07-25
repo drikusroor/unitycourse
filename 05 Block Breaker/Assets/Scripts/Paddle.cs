@@ -9,6 +9,9 @@ public class Paddle : MonoBehaviour {
 
 	private Vector3 originalScale;
 
+	// power up props
+	private int maxResizeScale = 3;
+
 	// Use this for initialization
 	void Start () {
 		originalScale = transform.localScale;
@@ -43,14 +46,14 @@ public class Paddle : MonoBehaviour {
 
 	void WidePaddle() {
 		float currentScaleX = transform.localScale.x;
-		if (currentScaleX / 3 < originalScale.x) {
+		if (currentScaleX / maxResizeScale < originalScale.x) {
 			transform.localScale = new Vector3 (transform.localScale.x * 2, transform.localScale.y, transform.localScale.z);
 		}
 	}
 
 	void SlimPaddle() {
 		float currentScaleX = transform.localScale.x;
-		if (currentScaleX * 3 > originalScale.x) {
+		if (currentScaleX * maxResizeScale > originalScale.x) {
 			transform.localScale = new Vector3 (transform.localScale.x / 2, transform.localScale.y, transform.localScale.z);
 		}
 	}
