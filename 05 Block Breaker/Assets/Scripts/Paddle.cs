@@ -8,6 +8,7 @@ public class Paddle : MonoBehaviour {
 	private Ball ball;
 
 	private Vector3 originalScale;
+	private float currentScaleX;
 
 	// power up props
 	private int maxResizeScale = 3;
@@ -15,6 +16,7 @@ public class Paddle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		originalScale = transform.localScale;
+		currentScaleX = transform.localScale.x;
 		ball = GameObject.FindObjectOfType<Ball> ();
 	}
 	
@@ -28,7 +30,7 @@ public class Paddle : MonoBehaviour {
     }
 
 	void AutoPlay() {
-		float ballPos = Mathf.Clamp( ball.transform.position.x , 0.5f, 15.5f) ;
+		float ballPos = Mathf.Clamp( ball.transform.position.x , 0.5f * currentScaleX, 16f - 0.5f * currentScaleX) ;
 		Vector3 currentPos = this.transform.position;
 		Vector3 newPos = new Vector3(ballPos, currentPos.y, currentPos.z);
 		
@@ -37,7 +39,7 @@ public class Paddle : MonoBehaviour {
 
 	void MoveWithMouse()
 	{
-		float mousePosInBlocks = Mathf.Clamp( Input.mousePosition.x / Screen.width * 16 , 0.5f, 15.5f) ;
+		float mousePosInBlocks = Mathf.Clamp( Input.mousePosition.x / Screen.width * 16 , 0.5f * currentScaleX, 16f - 0.5f * currentScaleX) ;
 		Vector3 currentPos = this.transform.position;
 		Vector3 newPos = new Vector3(mousePosInBlocks, currentPos.y, currentPos.z);
 		
@@ -45,10 +47,10 @@ public class Paddle : MonoBehaviour {
 	}
 
 	void WidePaddle() {
-		float currentScaleX = transform.localScale.x;
 		if (currentScaleX / maxResizeScale < originalScale.x) {
 			transform.localScale = new Vector3 (transform.localScale.x * 2, transform.localScale.y, transform.localScale.z);
 		}
+		currentScaleX = transform.localScale.x;
 	}
 
 	void SlimPaddle() {
@@ -56,6 +58,7 @@ public class Paddle : MonoBehaviour {
 		if (currentScaleX * maxResizeScale > originalScale.x) {
 			transform.localScale = new Vector3 (transform.localScale.x / 2, transform.localScale.y, transform.localScale.z);
 		}
+		currentScaleX = transform.localScale.x;
 	}
 
 	public void ActivatePowerUp(string powerUpName) {
