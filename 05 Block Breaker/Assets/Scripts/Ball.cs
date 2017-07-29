@@ -34,7 +34,7 @@ public class Ball : MonoBehaviour {
             // Wait for mouse press to start game
             if (Input.GetMouseButtonDown(0))
             {
-				this.rigidbody2D.velocity = ballSpeed;
+				this.GetComponent<Rigidbody2D>().velocity = ballSpeed;
                 gameStarted = true;
             }
         }        
@@ -44,7 +44,7 @@ public class Ball : MonoBehaviour {
     {
 		Vector2 tweak = new Vector2 (Random.Range (0f, 0.5f), Random.Range (0f, 0.3f));
 
-		gameObject.rigidbody2D.velocity += tweak;
+		gameObject.GetComponent<Rigidbody2D>().velocity += tweak;
 
 		if (gameStarted) 
 		{
