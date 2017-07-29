@@ -7,6 +7,7 @@ public class Brick : MonoBehaviour {
     public static int breakableCount = 0;
 	public AudioClip collisionSound;
 	public GameObject powerUpPrefab;
+	public GameObject smoke;
 
     private int timesHit = 0;
     private SpriteRenderer spriteRenderer;
@@ -25,7 +26,8 @@ public class Brick : MonoBehaviour {
         }
 
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-    }
+
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -41,6 +43,13 @@ public class Brick : MonoBehaviour {
         }
     }
 
+	void powerUpSpawn() {
+		int chance = Random.Range (0, 2);
+		if (chance == 0) {
+			GameObject.Instantiate(powerUpPrefab, transform.position, transform.rotation);
+		}
+	}
+
     void HandleHits()
     {
         timesHit++;
@@ -50,7 +59,9 @@ public class Brick : MonoBehaviour {
             breakableCount--;
             levelManager.BrickDestroyed();
 
-			var powerUp = GameObject.Instantiate(powerUpPrefab, transform.position, transform.rotation);
+			powerUpSpawn();
+			smoke.GetComponent<ParticleSystem>().startColor = spriteRenderer.color;
+			Instantiate(smoke, transform.position, transform.rotation);
 
             Destroy(gameObject);
         }
