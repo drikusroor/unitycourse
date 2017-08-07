@@ -18,9 +18,9 @@ public class PlayerShip : MonoBehaviour {
 	void HandleControl() {
 		Vector3 pos = transform.position;
 		if (Input.GetKey(KeyCode.LeftArrow)) {
-			transform.position = new Vector3 (pos.x - moveSpeed, pos.y);
+			transform.position += new Vector3 (-moveSpeed * Time.deltaTime, 0f);
 		} else if (Input.GetKey(KeyCode.RightArrow)) {
-			transform.position = new Vector3 (pos.x + moveSpeed, pos.y);
+			transform.position += new Vector3 (moveSpeed * Time.deltaTime, 0f);
 		}
 
 	}
