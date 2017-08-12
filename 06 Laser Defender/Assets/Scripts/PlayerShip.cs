@@ -6,6 +6,7 @@ public class PlayerShip : MonoBehaviour {
 
 	public GameObject laser;
 	public float laserSpeed;
+	public float firingRate;
 	public float moveSpeed;
 	public float padding = 1f;
 	float xmin = -5f;
@@ -28,14 +29,18 @@ public class PlayerShip : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		HandleControl ();	
-		HandleShoot ();
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			InvokeRepeating ("Fire", .001f, firingRate);
+		}
+		if (Input.GetKeyUp (KeyCode.Space)) {
+			CancelInvoke ("Fire");
+		}
 	}
 
-	void HandleShoot() {
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			GameObject laserObject = Instantiate (laser, transform.position, Quaternion.identity) as GameObject;
-			laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3 (0f, laserSpeed); 
-		}
+	void Fire() {
+		GameObject laserObject = Instantiate (laser, transform.position, Quaternion.identity) as GameObject;
+		laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3 (0f, laserSpeed); 
 	}
 
 	void HandleControl() {
