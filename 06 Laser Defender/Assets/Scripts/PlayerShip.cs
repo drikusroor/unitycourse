@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerShip : MonoBehaviour {
 
+	public GameObject laser;
+	public float laserSpeed;
 	public float moveSpeed;
 	public float padding = 1f;
 	float xmin = -5f;
@@ -26,6 +28,14 @@ public class PlayerShip : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		HandleControl ();	
+		HandleShoot ();
+	}
+
+	void HandleShoot() {
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			GameObject laserObject = Instantiate (laser, transform.position, Quaternion.identity) as GameObject;
+			laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3 (0f, laserSpeed); 
+		}
 	}
 
 	void HandleControl() {
