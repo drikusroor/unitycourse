@@ -6,8 +6,13 @@ public class Projectile : MonoBehaviour {
 
     public float damage = 100f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float GetDamage()
     {
-        
+        return damage;
+    }
+
+    public void Hit()
+    {
+        Destroy(gameObject);
     }
 }
