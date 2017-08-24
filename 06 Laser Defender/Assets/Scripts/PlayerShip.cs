@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerShip : MonoBehaviour {
 
+    public float health = 300f;
+
 	public GameObject laser;
 	public float laserSpeed;
 	public float firingRate;
@@ -39,8 +41,9 @@ public class PlayerShip : MonoBehaviour {
 	}
 
 	void Fire() {
-		GameObject laserObject = Instantiate (laser, transform.position, Quaternion.identity) as GameObject;
-		laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3 (0f, laserSpeed); 
+        Vector3 startPosition = transform.position + new Vector3(0f, 1f, 0f);
+        GameObject laserObject = Instantiate(laser, startPosition, Quaternion.identity) as GameObject;
+        laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3 (0f, laserSpeed); 
 	}
 
 	void HandleControl() {
@@ -56,4 +59,26 @@ public class PlayerShip : MonoBehaviour {
 		transform.position = new Vector3 (newX, transform.position.y, transform.position.z);
 
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+        if (projectile != null)
+        {
+            health -= projectile.GetDamage();
+            projectile.Hit();
+            if (health <= 0f)
+            {
+                Destroy(gameObject);
+            }
+            print("Hit by projectile!");
+            print("Projectile damage: " + projectile.GetDamage().ToString());
+            print("Health: " + health);
+        }
+        else
+        {
+            print("Hit by something other!");
+        }
+    }
+
 }

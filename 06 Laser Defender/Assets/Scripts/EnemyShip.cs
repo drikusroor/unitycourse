@@ -9,15 +9,13 @@ public class EnemyShip : MonoBehaviour {
     public GameObject laser;
     public float laserSpeed;
     public float firingRate;
-    private float tempTime;
 
     // Update is called once per frame
     void Update()
     {
-        tempTime += Time.deltaTime;
-        if (tempTime > firingRate)
+        float probability = Time.deltaTime * firingRate;
+        if (Random.value < probability)
         {
-            tempTime -= firingRate;
             Fire();
         }
     }
