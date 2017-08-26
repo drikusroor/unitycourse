@@ -19,14 +19,18 @@ public class EnemySpawner : MonoBehaviour {
 		Gizmos.DrawWireCube(transform.position, new Vector3(width, height));
 	}
 
-	// Use this for initialization
-	void Start () {
-
+	void SpawnEnemies()
+	{
 		foreach (Transform child in transform) {
-			
 			GameObject enemy = Instantiate (enemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
 			enemy.transform.SetParent (child.transform);
 		}
+	}
+
+	// Use this for initialization
+	void Start () {
+
+		SpawnEnemies ();
 
 		padding = width / 2 + 1;
 		SetFormationBoundaries ();
@@ -56,8 +60,26 @@ public class EnemySpawner : MonoBehaviour {
 		transform.position = new Vector3 (newX, transform.position.y, transform.position.z);
 	}
 
+	bool AllMembersDead() 
+	{
+		foreach (Transform childPositionGameObject in transform) 
+		{
+			if (childPositionGameObject.childCount > 0 )
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		MoveFormation ();
+
+		if (AllMembersDead ()) 
+		{
+			Debug.Log ("All enemies dead!");
+			SpawnEnemies ();
+		}
 	}
 }
