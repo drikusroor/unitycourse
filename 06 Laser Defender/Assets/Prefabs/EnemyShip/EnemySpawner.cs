@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour {
 	public float width = 10f;
 	public float height = 5f;
 	public float moveSpeed;
-	public float spawnDelay = 1f;
+	public float spawnDelay = .2f;
 
 	private int direction = 1;
 	private float xmin;
