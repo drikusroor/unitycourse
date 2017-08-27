@@ -7,8 +7,10 @@ public class PlayerShip : MonoBehaviour {
     public float health = 300f;
 
 	public GameObject laser;
-	public float laserSpeed;
+    public GameObject shootSmoke;
+    public float laserSpeed;
 	public float firingRate;
+
 	public float moveSpeed;
 	public float padding = 1f;
 	float xmin = -5f;
@@ -43,8 +45,12 @@ public class PlayerShip : MonoBehaviour {
 	void Fire() {
         Vector3 startPosition = transform.position + new Vector3(0f, 1f, 0f);
         GameObject laserObject = Instantiate(laser, startPosition, Quaternion.identity) as GameObject;
-        laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3 (0f, laserSpeed); 
-	}
+        laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3 (0f, laserSpeed);
+
+        Vector3 smokePosition = transform.position + new Vector3(0f, 0f, 5f);
+        GameObject shootSmokeObject = Instantiate(shootSmoke, smokePosition, Quaternion.Euler(90, 0, 0)) as GameObject;
+
+    }
 
 	void HandleControl() {
 		Vector3 pos = transform.position;
