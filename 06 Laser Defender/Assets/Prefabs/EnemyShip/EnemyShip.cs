@@ -10,8 +10,11 @@ public class EnemyShip : MonoBehaviour {
     public float laserSpeed;
     public float firingRate;
 
+	public AudioClip laserSound;
+	public AudioClip dieSound;
+
 	public int points;
-	public ScoreKeeper scoreKeeper;
+	private ScoreKeeper scoreKeeper;
 
 	void Start()
 	{
@@ -39,6 +42,9 @@ public class EnemyShip : MonoBehaviour {
             if (health <= 0f)
             {
 				scoreKeeper.Score (points);
+
+				AudioSource.PlayClipAtPoint (dieSound, transform.position);
+
                 Destroy(gameObject);
             }
             print("Hit by projectile!");
@@ -55,5 +61,8 @@ public class EnemyShip : MonoBehaviour {
         Vector3 startPosition = transform.position + new Vector3(0f, -1f, 0f);
         GameObject laserObject = Instantiate(laser, startPosition, Quaternion.identity) as GameObject;
         laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, -laserSpeed);
+
+		// Play Laser Sound
+		AudioSource.PlayClipAtPoint(laserSound, transform.position);
     }
 }

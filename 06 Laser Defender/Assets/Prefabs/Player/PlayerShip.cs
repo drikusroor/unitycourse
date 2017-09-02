@@ -11,7 +11,7 @@ public class PlayerShip : MonoBehaviour {
     public float laserSpeed;
 	public float firingRate;
 
-	private AudioSource audioSource;
+	public AudioClip laserSound;
 
 	public float moveSpeed;
 	public float padding = 1f;
@@ -21,7 +21,6 @@ public class PlayerShip : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SetPlayerBoundaries ();
-		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void SetPlayerBoundaries()
@@ -57,7 +56,7 @@ public class PlayerShip : MonoBehaviour {
         GameObject shootSmokeObject = Instantiate(shootSmoke, smokePosition, Quaternion.Euler(90, 0, 0)) as GameObject;
 
 		// Play Sound
-		audioSource.PlayOneShot(audioSource.clip, 1f);
+		AudioSource.PlayClipAtPoint(laserSound, transform.position);
     }
 
 	void HandleControl() {
