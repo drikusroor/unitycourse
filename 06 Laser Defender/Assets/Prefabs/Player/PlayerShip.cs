@@ -11,6 +11,8 @@ public class PlayerShip : MonoBehaviour {
     public float laserSpeed;
 	public float firingRate;
 
+	private AudioSource audioSource;
+
 	public float moveSpeed;
 	public float padding = 1f;
 	float xmin = -5f;
@@ -19,6 +21,7 @@ public class PlayerShip : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SetPlayerBoundaries ();
+		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void SetPlayerBoundaries()
@@ -43,13 +46,18 @@ public class PlayerShip : MonoBehaviour {
 	}
 
 	void Fire() {
+
+		// Fire Laser
         Vector3 startPosition = transform.position + new Vector3(0f, 1f, 0f);
         GameObject laserObject = Instantiate(laser, startPosition, Quaternion.identity) as GameObject;
         laserObject.GetComponent<Rigidbody2D>().velocity = new Vector3 (0f, laserSpeed);
 
+		// Add Smoke
         Vector3 smokePosition = transform.position + new Vector3(0f, 0f, 5f);
         GameObject shootSmokeObject = Instantiate(shootSmoke, smokePosition, Quaternion.Euler(90, 0, 0)) as GameObject;
 
+		// Play Sound
+		audioSource.PlayOneShot(audioSource.clip, 1f);
     }
 
 	void HandleControl() {
