@@ -10,6 +10,14 @@ public class EnemyShip : MonoBehaviour {
     public float laserSpeed;
     public float firingRate;
 
+	public int points;
+	public ScoreKeeper scoreKeeper;
+
+	void Start()
+	{
+		scoreKeeper = GameObject.Find ("SCORE_VAR").GetComponent<ScoreKeeper> ();
+	}
+
     // Update is called once per frame
     void Update()
     {
@@ -30,6 +38,7 @@ public class EnemyShip : MonoBehaviour {
             projectile.Hit();
             if (health <= 0f)
             {
+				scoreKeeper.Score (points);
                 Destroy(gameObject);
             }
             print("Hit by projectile!");
