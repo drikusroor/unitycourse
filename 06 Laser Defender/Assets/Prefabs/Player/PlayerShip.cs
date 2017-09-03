@@ -73,6 +73,13 @@ public class PlayerShip : MonoBehaviour {
 
 	}
 
+	void Die() 
+	{
+		LevelManager levelManager = GameObject.Find ("LevelManager").GetComponent<LevelManager> ();
+		levelManager.LoadLevel ("Win Screen");
+		Destroy(gameObject);
+	}
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
@@ -82,7 +89,7 @@ public class PlayerShip : MonoBehaviour {
             projectile.Hit();
             if (health <= 0f)
             {
-                Destroy(gameObject);
+				Die ();
             }
             print("Hit by projectile!");
             print("Projectile damage: " + projectile.GetDamage().ToString());
