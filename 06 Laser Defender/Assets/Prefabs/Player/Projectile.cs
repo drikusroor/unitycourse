@@ -8,9 +8,13 @@ public class Projectile : MonoBehaviour {
 
     private float timeBeforeDestroy = 3f;
 
+    public GameObject laserSmoke;
+
     private void Start()
     {
         Destroy(gameObject, timeBeforeDestroy);
+
+        InvokeRepeating("EmitSmoke", .1f, .05f);
     }
 
     public float GetDamage()
@@ -21,5 +25,11 @@ public class Projectile : MonoBehaviour {
     public void Hit()
     {
         Destroy(gameObject);
+    }
+
+    void EmitSmoke()
+    {
+        Vector3 laserPosition = transform.position + new Vector3(0f, 0f, 5f);
+        GameObject laserSmokeObject = Instantiate(laserSmoke, laserPosition, Quaternion.Euler(90, 0, 0)) as GameObject;
     }
 }
