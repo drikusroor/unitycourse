@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
+<<<<<<< HEAD
   productGUID: 114a1a984793ae14d93fbb1c45655e9d
+=======
+  productGUID: fa94ed08b392444c29fed923ba794396
+>>>>>>> 9ceb6e49ea7f113b2495a4edc568962bc560f137
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
@@ -206,7 +210,11 @@ PlayerSettings:
   iOSURLSchemes: []
   iOSBackgroundModes: 0
   iOSMetalForceHardShadows: 0
+<<<<<<< HEAD
   metalEditorSupport: 1
+=======
+  metalEditorSupport: 0
+>>>>>>> 9ceb6e49ea7f113b2495a4edc568962bc560f137
   metalAPIValidation: 1
   iOSRenderExtraFrameOnPause: 0
   appleDeveloperTeamID: 
@@ -404,7 +412,11 @@ PlayerSettings:
   ps4DownloadDataSize: 0
   ps4GarlicHeapSize: 2048
   ps4ProGarlicHeapSize: 2560
+<<<<<<< HEAD
   ps4Passcode: frAQBc8Wsa1xVPfvJcrgRYwTiizs2trQ
+=======
+  ps4Passcode: sQzldVI5ZuGXbEWRK5RhRXdCdG5nG5az
+>>>>>>> 9ceb6e49ea7f113b2495a4edc568962bc560f137
   ps4pnSessions: 1
   ps4pnPresence: 1
   ps4pnFriends: 1
@@ -450,7 +462,11 @@ PlayerSettings:
   psp2LiveAreaTrialPath: 
   psp2PatchChangeInfoPath: 
   psp2PatchOriginalPackage: 
+<<<<<<< HEAD
   psp2PackagePassword: F69AzBlax3CF3EDNhm3soLBPh71Yexui
+=======
+  psp2PackagePassword: dNMK66MuCV6GXi5xr84P2R391UXaLHba
+>>>>>>> 9ceb6e49ea7f113b2495a4edc568962bc560f137
   psp2KeystoneFile: 
   psp2MemoryExpansionMode: 0
   psp2DRMType: 0
@@ -583,12 +599,22 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
+<<<<<<< HEAD
   cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: 
   projectName: 
   organizationId: 
+=======
+  cloudServicesEnabled:
+    UNet: 1
+  facebookSdkVersion: 7.9.4
+  apiCompatibilityLevel: 2
+  cloudProjectId: ed2c5b3d-cf6a-48d1-8bc0-f7be053771f6
+  projectName: 07 Glitch Garden
+  organizationId: ainab
+>>>>>>> 9ceb6e49ea7f113b2495a4edc568962bc560f137
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
