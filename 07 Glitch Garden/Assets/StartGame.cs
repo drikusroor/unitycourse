@@ -19,6 +19,6 @@ public class StartGame : MonoBehaviour {
 
     void GoToStartScene()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("Start Menu");
     }
 }

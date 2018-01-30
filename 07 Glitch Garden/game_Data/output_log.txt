@@ -1,0 +1,74 @@
+Mono path[0] = 'C:/Users/7600k/Documents/Drikus/Unity Course/unitycourse/07 Glitch Garden/game_Data/Managed'
+Mono config path = 'C:/Users/7600k/Documents/Drikus/Unity Course/unitycourse/07 Glitch Garden/game_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/7600k/Documents/Drikus/Unity Course/unitycourse/07 Glitch Garden/game_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55271
+Broadcasting "[IP] 169.254.214.87 [Port] 55271 [Flags] 2 [Guid] 456133423 [EditorId] 3269637983 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-IHL5NTH) [Debug] 0" to [169.254.255.255:54997]...
+Started listening to [0.0.0.0:55271]
+PlayerConnection already initialized - listening to [0.0.0.0:55271]
+Player data archive not found at `C:/Users/7600k/Documents/Drikus/Unity Course/unitycourse/07 Glitch Garden/game_Data/data.unity3d`, using local filesystem
+Initialize engine version: 2017.1.0f3 (472613c02cf7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon R9 200 Series (ID=0x6810)
+    Vendor:   ATI
+    VRAM:     2028 MB
+    Driver:   23.20.788.0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\UnityEngine.Timeline.dll (this message is harmless)
+Loading C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
+Platform assembly: C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\game_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.172 seconds
+OnLevelWasLoaded was found on MusicManager
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename: C:\buildslave\unity\build\Runtime/Mono/MonoScriptCache.cpp Line: 380)
+
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.878987 ms
+Don't destroy me on load! PersistentMusicManager
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MusicManager:Awake() (at C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\Assets\MusicManager.cs:14)
+ 
+(Filename: C:/Users/7600k/Documents/Drikus/Unity Course/unitycourse/07 Glitch Garden/Assets/MusicManager.cs Line: 14)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.904270 ms
+Playing clip for level Spooky_Groddle_1291879214 (UnityEngine.AudioClip)
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MusicManager:OnLevelWasLoaded(Int32) (at C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\Assets\MusicManager.cs:30)
+ 
+(Filename: C:/Users/7600k/Documents/Drikus/Unity Course/unitycourse/07 Glitch Garden/Assets/MusicManager.cs Line: 30)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MusicManager.OnLevelWasLoaded (Int32 level) [0x0002d] in C:\Users\7600k\Documents\Drikus\Unity Course\unitycourse\07 Glitch Garden\Assets\MusicManager.cs:34 
+ 
+(Filename: C:/Users/7600k/Documents/Drikus/Unity Course/unitycourse/07 Glitch Garden/Assets/MusicManager.cs Line: 34)
+
+System memory in use before: 27.3 MB.
+System memory in use after: 27.2 MB.
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 312.
+Total: 0.251409 ms (FindLiveObjects: 0.016472 ms CreateObjectMapping: 0.007561 ms MarkObjects: 0.143662 ms  DeleteObjects: 0.082362 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2eb8 -> priority: 1 
+  Thread -> id: 318c -> priority: 1 
