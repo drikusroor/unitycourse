@@ -11,7 +11,7 @@ public class PlayerPrefsManager : MonoBehaviour {
 
     public static void SetMasterVolume (float volume)
     {
-        if (volume > 0f && volume < 1f)
+        if (volume >= 0f && volume <= 1f)
         {
             PlayerPrefs.SetFloat(MASTER_VOLUME_KEY, volume);
         }
@@ -53,7 +53,7 @@ public class PlayerPrefsManager : MonoBehaviour {
 
     public static void SetDifficulty (float difficulty)
     {
-        if (difficulty > 0f && difficulty < 1f)
+        if (difficulty >= 1f && difficulty <= 3f)
         {
             PlayerPrefs.SetFloat(DIFFICULTY_KEY, difficulty);
         }
@@ -65,6 +65,6 @@ public class PlayerPrefsManager : MonoBehaviour {
 
     public static float GetDifficulty()
     {
-        return PlayerPrefs.GetFloat(DIFFICULTY_KEY, .5f);
+        return PlayerPrefs.GetFloat(DIFFICULTY_KEY, 2f);
     }
 }

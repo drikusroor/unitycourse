@@ -17,12 +17,19 @@ public class MusicManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = PlayerPrefsManager.GetMasterVolume();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void ChangeVolume(float volume)
+    {
+        Debug.Log(volume);
+        audioSource.volume = volume;
+    }
 
     private void OnLevelWasLoaded(int level)
     {
